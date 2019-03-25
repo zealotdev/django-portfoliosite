@@ -2,7 +2,7 @@
 
 
 It is my first django based funny project, that hopeful will help me gain confidence over django,
-Ofcourse it's out for contributtion and criticizing as am new in this field.
+Ofcourse it's out for contributtion and criticizing as I'am new in this field.
 
 ## Packages Used
 
