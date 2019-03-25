@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
 
 <head>
   <meta charset="utf-8">
@@ -14,7 +15,149 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- Font style  -->
+  <link rel="stylesheet" href="{% static 'font.css' %}">
   <style>
+    .blog-header {
+      line-height: 1;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .blog-header-logo {
+      font-family: 'FF Tisa OT Black Italic';
+      font-size: 2.25rem;
+    }
+
+    .blog-header-logo:hover {
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+
+    .display-4 {
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .display-4 {
+        font-size: 3rem;
+      }
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-scroller .nav-link {
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+      font-size: .875rem;
+    }
+
+    .card-img-right {
+      height: 100%;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .flex-auto {
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+    }
+
+    .h-250 {
+      height: 250px;
+    }
+
+    @media (min-width: 768px) {
+      .h-md-250 {
+        height: 250px;
+      }
+    }
+
+    /*
+   * Blog name and description
+   */
+    .blog-title {
+      margin-bottom: 0;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .blog-description {
+      font-size: 1.1rem;
+      color: #999;
+    }
+
+    @media (min-width: 40em) {
+      .blog-title {
+        font-size: 3.5rem;
+      }
+    }
+
+    /* Pagination */
+    .blog-pagination {
+      margin-bottom: 4rem;
+    }
+
+    .blog-pagination>.btn {
+      border-radius: 2rem;
+    }
+
+    /*
+   * Blog posts
+   */
+    .blog-post {
+      margin-bottom: 4rem;
+    }
+
+    .blog-post-title {
+      margin-bottom: .25rem;
+      font-size: 2.5rem;
+    }
+
+    .blog-post-meta {
+      margin-bottom: 1.25rem;
+      color: #999;
+    }
+
+    /*
+   * Footer
+   */
+    .blog-footer {
+      padding: 2.5rem 0;
+      color: #999;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-top: .05rem solid #e5e5e5;
+    }
+
+    .blog-footer p:last-child {
+      margin-bottom: 0;
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -33,7 +176,7 @@
   <!-- Custom styles for this template -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="css/blog.css" rel="stylesheet">
+  <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -44,7 +187,7 @@
           <a class="text-muted" href="#">Subscribe</a>
         </div>
         <div class="col-4 text-center">
-          <a class="blog-header-logo text-dark" href="#">Large</a>
+          <a class="blog-header-logo text-dark" href="#">BlogXY</a>
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
           <a class="text-muted" href="#">
@@ -61,18 +204,11 @@
 
     <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="#">World</a>
-        <a class="p-2 text-muted" href="#">U.S.</a>
         <a class="p-2 text-muted" href="#">Technology</a>
-        <a class="p-2 text-muted" href="#">Design</a>
-        <a class="p-2 text-muted" href="#">Culture</a>
-        <a class="p-2 text-muted" href="#">Business</a>
-        <a class="p-2 text-muted" href="#">Politics</a>
-        <a class="p-2 text-muted" href="#">Opinion</a>
+        <a class="p-2 text-muted" href="#">Programming</a>
+        <a class="p-2 text-muted" href="#">Hacking</a>
         <a class="p-2 text-muted" href="#">Science</a>
-        <a class="p-2 text-muted" href="#">Health</a>
-        <a class="p-2 text-muted" href="#">Style</a>
-        <a class="p-2 text-muted" href="#">Travel</a>
+        <a class="p-2 text-muted" href="#">Lifestyle</a>
       </nav>
     </div>
 
@@ -88,7 +224,7 @@
       <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <strong class="d-inline-block mb-2 text-primary">Lifestyle</strong>
             <h3 class="mb-0">Featured post</h3>
             <div class="mb-1 text-muted">Nov 12</div>
             <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
@@ -105,7 +241,7 @@
       <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success">Design</strong>
+            <strong class="d-inline-block mb-2 text-success">Programming</strong>
             <h3 class="mb-0">Post title</h3>
             <div class="mb-1 text-muted">Nov 11</div>
             <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
